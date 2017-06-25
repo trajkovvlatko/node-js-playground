@@ -5,6 +5,9 @@
     "app_id": "",
     "location": ""
   },
+  "newsapi": {
+    "api_key": ""
+  },
   "description": "",
   "main": "app.js",
   "scripts": {

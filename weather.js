@@ -16,7 +16,6 @@ class Weather {
     url += "&appid=" + this.appId
 
     try {
-      let data, json
       const weather = await axios(url)
       return this.parse(weather.data.list)
 
