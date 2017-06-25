@@ -2,10 +2,10 @@
 
 #### Complete:
  - Weather forecast
+ - News
 
 #### Todo:
  - Todo list
- - News
  - Traffic info
  - Random movie
  - Random song
