@@ -1,9 +1,9 @@
 # Node.js playground
 
-Complete:
+#### Complete:
  - Weather forecast
 
-Todo:
+#### Todo:
  - Todo list
  - News
  - Traffic info
@@ -11,7 +11,7 @@ Todo:
  - Random song
  
  
-Running:
+#### Running:
 
 Edit package.json 
  - add your http://openweathermap.org api key
@@ -24,6 +24,8 @@ node app.js <argument>
 ```
  
  
-Add alias:
+#### Add alias:
 
+```
 alias weather="<path-to-directory>/app.js weather"
+```
