@@ -3,6 +3,7 @@
 const pjson = require('./package.json')
 const Weather = require('./weather.js')
 const News = require('./news.js')
+const Todo = require('./todo.js')
 
 async function getWeather() {
   const { app_id: appId, location } = pjson.weather
@@ -25,17 +26,38 @@ async function getNews() {
     news.error(newsData.message)
 }
 
-function showInfo() {
-  console.log("\nAvailable options: 'weather'\n")
-  console.log("Planned: 'todos', 'news', 'traffic', 'random movie', 'random song'\n")
+async function todos() {
+  const action = process.argv[3]
+  const val = process.argv[4]
+
+  const todo = new Todo()
+  await todo.load()
+  const todos = await todo.get()
+
+  switch(action) {
+    case "add":
+      return todo.print(await todo.add(val))
+    case "del":
+      const id = parseInt(val)
+      return todo.print(await todo.delete(id))
+    default:
+      return todo.print(todos)
+  }
 }
 
-if (process.argv.length === 3) {
+function showInfo() {
+  console.log("\nAvailable options: 'weather', 'news', 'todo'\n")
+  console.log("Planned: 'traffic', 'random movie', 'random song'\n")
+}
+
+if (process.argv.length > 2) {
   switch(process.argv[2]) {
     case "weather":
       return getWeather()
     case "news":
       return getNews()
+    case "todo":
+      return todos()
     default:
       return showInfo()
   }

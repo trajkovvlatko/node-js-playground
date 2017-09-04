@@ -3,15 +3,20 @@
 #### Complete:
  - Weather forecast
  - News
+ - Todo list
 
 #### Todo:
- - Todo list
  - Traffic info
  - Random movie
  - Random song
  
  
 #### Running:
+
+```
+npm install
+node app.js <argument>
+```
 
 Edit package.json 
 
@@ -24,11 +29,11 @@ Edit package.json
 
  - add your https://newsapi.org/ api key
 
+##### Todo
 
-```
-npm install
-node app.js <argument>
-```
+ - todo
+ - todo add "Do some task"
+ - todo del 1
  
  
 #### Add alias:
@@ -36,4 +41,5 @@ node app.js <argument>
 ```
 alias weather="<path-to-directory>/app.js weather"
 alias news="<path-to-directory>/app.js news"
+alias todo="<path-to-directory>/app.js todo"
 ```
