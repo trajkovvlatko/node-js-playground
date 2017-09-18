@@ -4,11 +4,7 @@
  - Weather forecast
  - News
  - Todo list
-
-#### Todo:
- - Traffic info
- - Random movie
- - Random song
+ - Movies by genres
  
  
 #### Running:
@@ -35,6 +31,10 @@ Edit package.json
  - todo add "Do some task"
  - todo del 1
  
+##### Movies
+
+ - add your http://themoviedb.org api key
+ 
  
 #### Add alias:
 
@@ -42,4 +42,5 @@ Edit package.json
 alias weather="<path-to-directory>/app.js weather"
 alias news="<path-to-directory>/app.js news"
 alias todo="<path-to-directory>/app.js todo"
+alias movie="<path-to-directory>/app.js movie"
 ```
