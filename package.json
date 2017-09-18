@@ -5,6 +5,10 @@
     "app_id": "",
     "location": ""
   },
+  "themoviedb": {
+    "host": "https://api.themoviedb.org/3",
+    "api_key": ""
+  },
   "newsapi": {
     "api_key": ""
   },

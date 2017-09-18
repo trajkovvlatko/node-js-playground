@@ -4,6 +4,7 @@ const pjson = require('./package.json')
 const Weather = require('./weather.js')
 const News = require('./news.js')
 const Todo = require('./todo.js')
+const Movie = require('./movie.js')
 
 async function getWeather() {
   const { app_id: appId, location } = pjson.weather
@@ -45,6 +46,32 @@ async function todos() {
   }
 }
 
+async function movie() {
+  const genre = process.argv[3]
+  const {
+    api_key: apiKey,
+    host: host
+  } = pjson.themoviedb
+
+  const movie = new Movie(apiKey, host)
+  const genresResponse = await movie.getGenres()
+  if (genresResponse.status_code !== 200) {
+    console.log(genresResponse.status_message)
+    return false
+  }
+  const genreIdsResponse = await movie.askGenres(genresResponse.sortedGenres)
+  if (genreIdsResponse.status_code !== 200) {
+    console.log(genreIdsResponse.status_message)
+    return false
+  }
+  const moviesResponse = await movie.get(genreIdsResponse.genreIds)
+  if (moviesResponse.status_code !== 200) {
+    console.log(moviesResponse.status_message)
+    return false
+  }
+  return movie.print(moviesResponse.movies)
+}
+
 function showInfo() {
   console.log("\nAvailable options: 'weather', 'news', 'todo'\n")
   console.log("Planned: 'traffic', 'random movie', 'random song'\n")
@@ -58,6 +85,8 @@ if (process.argv.length > 2) {
       return getNews()
     case "todo":
       return todos()
+    case "movie":
+      return movie()
     default:
       return showInfo()
   }
